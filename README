@@ -3,6 +3,16 @@ toggler is a jQuery plugin for togglering elements around...
 Installation & Example
 ======================
 
+Setting it up is easy: include the jquery-toggler.js script, call the toggler()
+function on any clickable element and set the rel attribute of that element
+to match the ID of the element which is to be togglered
+(clearly, if you look in the source of the example, you’ll understand that better than my jibberish).
+
+The default height when the element is closed (togglered up) is 40px, when the
+element is open (togglered down) is 140px and the default speed of this magical
+animation is set to 1000 (1 second). You can of course change these by passing
+them to the toggler({speed:500}) function.
+
 See the index.html for an example... It's nothing much, really.
 
 Copyright & License
