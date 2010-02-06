@@ -4,33 +4,61 @@
 jQuery.fn.toggler = function(options) {
     var defaults = {
         speed: 1000,
-        openHeight: 140,
-        closedHeight: 40
+        openTop: 0,
+        closedTop: -200
     }
+
     options = $.extend({}, defaults, options || {});
-    var togglerDude = $(this);
-    togglerDude.bind('click', function(event) {
+
+    $(this).each(function(){
+
+        var togglerDude = $(this);
         var toggler = $(this).attr('rel');
         var toBeTogglered = $("#" + toggler);
-        $(".toggler[id!="+toggler+"]").animate({
-                height: options.closedHeight+'px'
-            },
-            options.speed
-        );
 
-        if(toBeTogglered.height() != options.openHeight) {
-            toBeTogglered.animate({
-                    height: options.openHeight+'px'
+        toBeTogglered.wrap('<div class="outside" id="o_' + toggler + '" />');
+        toBeTogglered.toggleClass('togglered');
+
+        togglerDude.bind('click', function(event) {
+
+            $(".outside[id!=o_"+toggler+"]").animate({
+                    height: '0px'
                 },
                 options.speed
             );
-        } else {
-            toBeTogglered.animate({
-                    height: options.closedHeight+'px'
+            $(".toggler[id!="+toggler+"]").animate({
+                    top: options.closedTop + 'px'
                 },
                 options.speed
             );
-        }
-        event.preventDefault();
+
+            if(toBeTogglered.position().top != options.openTop) {
+                $(".outside[id=o_"+toggler+"]").animate({
+                        height: '200px'
+                    },
+                    options.speed
+                );
+                toBeTogglered.animate({
+                        top: options.openTop + 'px'
+                    },
+                    options.speed
+                );
+            } else {
+                $(".outside[id=o_"+toggler+"]").animate({
+                        height: '0px'
+                    },
+                    options.speed
+                );
+                toBeTogglered.animate({
+                        top: options.closedTop + 'px'
+                    },
+                    options.speed
+                );
+            }
+
+            event.preventDefault();
+
+        });
+
     });
 }

@@ -3,9 +3,9 @@
     <head>
         <title>Toggler example</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="/path/to/jquery-1.4.1.min.js"></script>
+        <script type="text/javascript" src="jquery-1.4.1.min.js"></script>
 
-        <script type="text/javascript" src="/path/to/jquery-toggler.js"></script>
+        <script type="text/javascript" src="jquery-toggler.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function(){
@@ -13,37 +13,58 @@
             });
         </script>
 
+        <style type="text/css">
+            #togglerOne {
+                background: #000;
+                width: 180px;
+                color: #fff;
+            }
+            #togglerTwo {
+                background: #000;
+                width: 180px;
+                color: #fff;
+            }
+            .outside{
+                overflow:hidden;
+                height:0px;
+                position:relative;
+                top:0px;
+            }
+            .togglered {
+                top: -200px;
+                overflow: hidden;
+                position: absolute;
+                height: 200px;
+            }
+            .container {
+                float: left;
+            }
+        </style>
+
     </head>
     <body>
-        <a href="" class="toggler-dude" rel="togglerOne">Click memememememe!</a>
-        <div style="width:180px;height:20px;background-color:#000;color:#fff;">
-            Foo
+
+        <div class="container"><!--just to place the 2 divs side by side for the example -->
+            
+            <a href="" class="toggler-dude" rel="togglerOne">Click me!</a>
+
+            <div style="background: #999; width: 180px;">Foo</div>
+
+            <div id="togglerOne" class="toggler">I'm gonna be togglered down!</div>
+
         </div>
 
-        <div id="togglerOne" class="toggler" style="width:180px;height:40px;background-color:#999;color:#fff;">
-		I'm gonna be togglered down!
+        <div class="container"><!--just to place the 2 divs side by side for the example -->
+            
+            <a href="" class="toggler-dude" rel="togglerTwo">Or click me!</a>
+
+            <div style="background: #999; width: 180px;">Bar</div>
+
+            <div id="togglerTwo" class="toggler">I'm gonna be togglered down!</div>
+
         </div>
 
-        <div>I just go with the flow</div>
-
-        <a href="" class="toggler-dude" rel="togglerTwo">No, click me!</a>
-        <div style="width:180px;height:20px;background-color:#000;color:#fff;">
-            Bar
-        </div>
-
-        <div id="togglerTwo" class="toggler" style="width:180px;height:40px;background-color:#999;color:#fff;">
-            I'm gonna be togglered down, too!
-        </div>
-
-        <div>I'm here just to be pushed around</div>
-
-        <div style="width:180px;height:20px;background-color:#000;color:#fff;" class="toggler-dude" rel="togglerThree">
-            Or click me!
-        </div>
-
-        <div id="togglerThree" class="toggler" style="width:180px;height:40px;background-color:#999;color:#fff;">
-            I'm gonna be togglered down, three!
-        </div>
+        <div style="width: 100%; float: left;">I'm just going with the flow</div>
 
     </body>
 </html>
